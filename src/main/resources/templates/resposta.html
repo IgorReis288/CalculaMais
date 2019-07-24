@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Calcula Mais</title>
+</head>
+<body>
+	<table>
+		<tr th:each="rep : ${resposta}">
+		<td th:text="${rep.resposta}">
+		<br/>
+		<tr th:each= "resp : ${resposta2}" >
+		<td th:text= "${resp.resposta}" >
+	</table>
+</body>
+</html>

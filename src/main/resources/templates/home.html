@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Calcula Mais</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<form id="formulario">
+	ax²:<input type="text" name="a" class="a">
+	bx: <input type="text" name="b" class="b">
+	c: <input type="text" name="c" class= "c">
+	<button id="calcula"> Calcular</button>
+	</form>
+	<p id="resposta"></p>
+	
+	<script th:inline="javascript" >
+
+	$("#calcula").click(function (event) {
+		event.preventDefault();
+
+		var form = document.querySelector("#formulario");
+		
+		var a = form.a.value;
+		var b = form.b.value;
+		var c = form.c.value;
+
+		$.get("http://localhost:8080/resposta/"+ a + "/" + b + "/" + c, function(data){
+			console.log(data);
+			document.getElementById('resposta').innerHTML = data;
+
+		});
+		
+	});
+	</script>
+</body>
+</html>
