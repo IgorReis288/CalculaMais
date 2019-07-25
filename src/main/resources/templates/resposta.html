@@ -3,14 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Calcula Mais</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-	<table>
-		<tr th:each="rep : ${resposta}">
-		<td th:text="${rep.resposta}">
-		<br/>
-		<tr th:each= "resp : ${resposta2}" >
-		<td th:text= "${resp.resposta}" >
-	</table>
+	<h2>Coloque um número inteiro para ver operações simples até 10</h2>
+	<form id="formulario">
+		ax²:<input type="number" name="a" class="a" required> 
+		<button id="calcula">Calcular</button>
+	</form>
+	<p id="resposta"></p>
+
+	<script th:inline="javascript">
+		$("#calcula").click(
+				function(event) {
+					event.preventDefault();
+
+					var form = document.querySelector("#formulario");
+
+					var a = form.a.value;
+					
+					$.get("http://localhost:8080/soma/" + a, function(data) {
+						console.log(data);
+						document.getElementById('resposta').innerHTML = data;
+
+					});
+
+				});
+	</script>
 </body>
 </html>

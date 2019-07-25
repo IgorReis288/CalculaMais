@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.calculaMais.entity.EquaSegGrauEntity;
 import br.com.calculaMais.service.EquacaoSegundoGrauService;
 
 @Service
