@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.calculaMais.entity.EquaSegGrauEntity;
 import br.com.calculaMais.service.EquacaoSegundoGrauService;
 
 @Controller
@@ -17,8 +16,6 @@ public class HomeController {
 	@Autowired
 	private EquacaoSegundoGrauService equa;
 	
-	@Autowired
-	private EquaSegGrauEntity rep;
 
 	@RequestMapping("/home")
 	public String home() {

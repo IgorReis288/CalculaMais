@@ -3,6 +3,7 @@ package br.com.calculaMais.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,10 +82,16 @@ public class EquacaoSegundoGrauServiceImpl implements EquacaoSegundoGrauService 
 			return "Por favor, coloque apenas números inteiros.";
 		}
 		
+		
 		if(a.isEmpty()) 
 			return "Por não conter o parâmentro 'ax²' esta equação não é de Segundo Grau.";
 		
-		//Filtro alterado até aqui. 23/07/2019. por igor oliveira.
+
+		if(Pattern.matches("\\D", a)||
+				Pattern.matches("\\D", b) ||
+				Pattern.matches("\\D", c)) {
+			return "Neste exemplo, só pode conter números inteiros.";
+		}
 		
 		
 		int A = Integer.valueOf(a);
@@ -95,7 +102,8 @@ public class EquacaoSegundoGrauServiceImpl implements EquacaoSegundoGrauService 
 				.replace("\r\n", "<br/>")
 				.replace(",", "")
 				.replace("[", "")
-				.replace("]", "");
+				.replace("]", "")
+				.replace("delta", "&Delta;");
 		return filtrada;
 	}
 	
